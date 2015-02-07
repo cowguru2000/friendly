@@ -1,14 +1,17 @@
 package ly.friend.derp;
 
-import ly.friend.derp.util.SystemUiHider;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+
+import ly.friend.derp.util.SystemUiHider;
 
 
 /**
@@ -123,6 +126,14 @@ public class MainActivity extends Activity {
         // created, to briefly hint to the user that UI controls
         // are available.
         delayedHide(100);
+
+        CameraManager manager = (CameraManager) this.getSystemService(Context.CAMERA_SERVICE);
+
+        try {
+            manager.getCameraIdList();
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
     }
 
 
