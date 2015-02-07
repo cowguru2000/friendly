@@ -3,7 +3,6 @@
     package="ly.friend.derp" >
 
     <uses-feature android:name="android.hardware.camera" />
-
     <uses-permission android:name="android.permission.CAMERA" />
 
     <application
@@ -16,6 +15,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_main"
             android:theme="@style/FullscreenTheme" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
     </application>
 
